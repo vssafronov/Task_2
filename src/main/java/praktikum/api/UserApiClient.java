@@ -83,7 +83,7 @@ public class UserApiClient {
         assertTrue(isUserLogin);
     }
 
-    @Step("Проверка вторизации пользователя без обязательных полей")
+    @Step("Проверка авторизации пользователя без обязательных полей")
     public void loginUserWithIncorrectFields(ValidatableResponse loginResp) {
         String errorMessage = loginResp
                 .assertThat()
@@ -123,7 +123,7 @@ public class UserApiClient {
         assertTrue(isUserDataChanged);
     }
 
-    @Step("Проверка корректности изменения данных пользователя")
+    @Step("Проверка ошибки при изменении данных пользователя без авторизации")
     public void changeUserDataWithoutAccess(ValidatableResponse changeDataResp) {
         String errorMessage = changeDataResp
                 .assertThat()
